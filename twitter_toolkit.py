@@ -235,8 +235,35 @@ class TweetsGetterByUser(TweetsGetter):
 
         return int(remaining), int(reset)
 
+
+class UserGetter(TweetsGetterByUser):
+    '''
+    ユーザーを指定してツイートを取得
+    '''
+    def __init__(self, screen_name):
+        super(UserGetter, self).__init__(screen_name)
+
+    def specifyUrlAndParams(self):
+        '''
+        呼出し先 URL、パラメータを返す
+        '''
+        url = 'https://api.twitter.com/1.1/users/show.json'
+        params = {'screen_name':self.screen_name}
+        return url, params
+
+    def collect(self):
+        url, params = self.specifyUrlAndParams()
+        res = self.session.get(url, params = params)
+        return json.loads(res.text)
+
+
 if __name__ == '__main__':
 
+    #getter = TweetsGetterByUser.bySearch(u'screen_name')
+    getter = UserGetter('functionp')
+    print(getter.collect())
+
+    '''
     # キーワードで取得
     getter = TweetsGetter.bySearch(u'渋谷')
 
@@ -250,3 +277,4 @@ if __name__ == '__main__':
         print ('{} {} {}'.format(tweet['id'], tweet['created_at'], '@'+tweet['user']['screen_name']))
         print (tweet['text'])
         #
+    '''
