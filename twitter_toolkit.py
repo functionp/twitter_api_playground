@@ -53,6 +53,8 @@ class TweetsGetter(object):
         params['include_rts'] = str(includeRetweet).lower()
         # include_rts は statuses/user_timeline のパラメータ。search/tweets には無効
 
+        print(params['count'])
+
         #----------------
         # ツイート取得
         #----------------
