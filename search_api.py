@@ -3,10 +3,10 @@ import requests_oauthlib
 import requests
 import json
 
-token = {'TOKEN': "799248894496382977-2CEMJbgHAXdacEmnqFUUxoENqOEvXSW",
-         'TOKEN_SECRET': "r97GvwkG7KrJw9bOrEHkhJaI7qhqh1SJMBTJBslDTVlsz",
-         'CONSUMER_KEY': "uhKLMu5QVQpiROJUx8M4MwYxh",
-         'CONSUMER_SECRET': "LhbdBESzSdOs4rPVu68qLkoIHVzT3UAsIEsjRz6g049uXJBNrh"}
+token = {'TOKEN': "",
+         'TOKEN_SECRET': "",
+         'CONSUMER_KEY': "",
+         'CONSUMER_SECRET': ""}
 
 
 header_oauth = requests_oauthlib.OAuth1(token['CONSUMER_KEY'],
